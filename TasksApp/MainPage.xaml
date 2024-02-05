@@ -10,15 +10,16 @@
           ColumnSpacing="10">
         
         <Image Grid.ColumnSpan="2" 
-               Source="dotnet_bot.png" 
-               BackgroundColor="LightGreen"/>
+               Source="todo.png" 
+               BackgroundColor="Transparent"/>
 
         <Entry Placeholder="Enter Task" 
                Grid.Row="1"></Entry>
 
         <Button Text="Add" 
                 Grid.Row="1" 
-                Grid.Column="1"></Button>
+                Grid.Column="1"
+                BackgroundColor="#00A4EF"></Button>
 
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2">
             <CollectionView.ItemsSource>
