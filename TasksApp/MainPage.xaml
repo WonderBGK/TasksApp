@@ -21,7 +21,32 @@
                 Grid.Column="1"></Button>
 
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2">
-            
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Apples</x:String>
+                    <x:String>Bananas</x:String>
+                    <x:String>Oranges</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete"
+                                           BackgroundColor="red"></SwipeItem>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Grid Padding="0.5">
+                            <Frame>
+                                <Label Text="{Binding .}"
+                                       FontSize="20"></Label>
+                            </Frame>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
             
         </CollectionView>
         
