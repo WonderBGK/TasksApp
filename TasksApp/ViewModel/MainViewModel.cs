@@ -32,5 +32,15 @@ namespace TasksApp.ViewModel
 			Text = string.Empty;
 		}
 
+		// delete method
+		[RelayCommand]
+		void Delete(string item) 
+		{
+			if (Items.Contains(item)) 
+			{  
+				Items.Remove(item); 
+			}
+		}
+
 	}
 }
