@@ -1,26 +1,36 @@
-﻿using System.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace TasksApp.ViewModel
 {
-	public class MainViewModel : INotifyPropertyChanged
+	public partial class MainViewModel : ObservableObject
 	{
-
-		// need to understand this
-		string text;
-
-		public string Text
+		public MainViewModel() 
 		{
-			get => text;
-			set
-			{
-				text = value;
-				OnPropertyChange(nameof(Text));
-			}
+			Items = new ObservableCollection<string>();
 		}
 
-		public event PropertyChangedEventHandler? PropertyChanged;
+		[ObservableProperty]
+		ObservableCollection<string> items;
 
-		void OnPropertyChange(string name) => 
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+
+		// need to understand this
+		[ObservableProperty]
+		string text;
+
+		// this is an interaction
+		[RelayCommand]
+		void Add()
+		{
+			if (string.IsNullOrWhiteSpace(Text))
+				return;
+
+			Items.Add(Text);
+			// add our item
+			Text = string.Empty;
+		}
+
 	}
 }
