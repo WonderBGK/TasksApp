@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using TasksApp.ViewModel;
 
 namespace TasksApp
 {
@@ -18,7 +19,12 @@ namespace TasksApp
 #if DEBUG
 			builder.Logging.AddDebug();
 #endif
-
+			// registering the service we added
+			// global stati is created once
+			// transient is created each time
+			// this is dependency injection
+			builder.Services.AddSingleton<MainPage>();
+			builder.Services.AddSingleton<MainViewModel>();
 			return builder.Build();
 		}
 	}
