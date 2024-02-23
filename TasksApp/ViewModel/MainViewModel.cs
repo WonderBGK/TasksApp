@@ -42,5 +42,13 @@ namespace TasksApp.ViewModel
 			}
 		}
 
+		// tap command
+		async Task Tap(string s)
+		{
+			// can be a string argment such as "DetailPage"
+			// this will now pass a string
+			await Shell.Current.GoToAsync($"{nameof(DetailPage)}?Text={s}");
+		}
+
 	}
 }

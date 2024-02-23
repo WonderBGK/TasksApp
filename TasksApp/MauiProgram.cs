@@ -25,7 +25,14 @@ namespace TasksApp
 			// this is dependency injection
 			builder.Services.AddSingleton<MainPage>();
 			builder.Services.AddSingleton<MainViewModel>();
-			return builder.Build();
+
+			// more dependency injection
+			// transient is created and destroyed each time 
+			// singleton is stored in memory, like global
+            builder.Services.AddTransient<DetailPage>();
+            builder.Services.AddTransient<DetailViewModel>();
+
+            return builder.Build();
 		}
 	}
 }
