@@ -9,7 +9,7 @@ namespace TasksApp
 		{
 			InitializeComponent();
 			// added MainViewModel as an argument 
-			// set BindingContext to vm
+			// set BindingContext to vm    
 			BindingContext = vm;
 		}
 
